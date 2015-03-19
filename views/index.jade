@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	h1="Опции виджета"
+
+	form#options(action="/generate", method="POST")
+		div(style={display: 'inline-block', 'margin-right': '20px'})
+			p Выберите город
+			select(name="city")
+				each city, id in cities
+					option(value=id)
+						= city
+		
+		div(style={display: 'inline-block', 'margin-right': '20px'})
+			p Количество дней
+			select(name="days")
+				each days in [1, 3, 7]
+					option(value=days)
+						= days
+
+		div(style={display: 'inline-block'})
+			p Ориентация виджета
+			each type, index in ['Горизонтальная', 'Вертикальная']
+				input(
+					type="radio"
+					name="view"
+					value=index
+				)
+				= type
+
+			button(type="submit", style={'margin-left': '20px'})
+				Получить код
+
+		#code(style={display:'none', background: '#ccc', width: '40%', margin: '20px', padding: '10px;'})
