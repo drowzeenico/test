@@ -1,0 +1,34 @@
+if view == 1
+	table
+		each val, index in data
+			tr
+				td(style={border:'1px solid #ccc'})
+					p 
+						Температура:
+						= (val.temp.day - 273).toFixed(2)
+						&deg; C
+						br
+						Влажность: 
+						= val.humidity + '%'
+						br
+						Ветер:
+						= val.speed + 'м/с'
+						br
+						= val.weather[0].description
+else if view == 0
+	table
+		tr
+			each val, index in data
+				td(style={border:'1px solid #ccc'})
+					p 
+						Температура:
+						= (val.temp.day - 273).toFixed(2)
+						&deg; C
+						br
+						Влажность: 
+						= val.humidity + '%'
+						br
+						Ветер:
+						= val.speed + 'м/с'
+						br
+						= val.weather[0].description

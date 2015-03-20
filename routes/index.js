@@ -15,4 +15,8 @@ router.get('/weather', function(req, res, next) {
 	API.getWeather(req, res, next)
 });
 
+router.get('/test', function(req, res, next) {
+	API.test(req, res, next)
+});
+
 module.exports = router;
