@@ -1,4 +1,5 @@
 var weather = require('../services/weather.js');
+var jade = require('jade');
 
 module.exports = {
 
@@ -15,16 +16,23 @@ module.exports = {
 
 	getWeather: function (req, res, next) {
 		weather.get(req.query.city, req.query.days, function (err, data) {
-			res.render('script', {
+			var options ={
 				data: data, 
 				view: req.query.view,
 				layout: false
-			});
+			};
+			options.html = jade.renderFile('views/html.jade', options);
+			res.render('script', options);
 		})
 	},
 
 	test: function (req, res, next) {
-		res.render('test', {layout: false});
+		res.render('test', {
+			layout: false,
+			city: req.query.city, 
+			view: req.query.view,
+			days: req.query.days
+		});
 	}
 
 }

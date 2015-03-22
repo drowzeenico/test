@@ -3,7 +3,7 @@ if view == 1
 		each val, index in data
 			tr
 				td(style={border:'1px solid #ccc'})
-					p 
+					p
 						Температура:
 						= (val.temp.day - 273).toFixed(2)
 						&deg; C
@@ -20,7 +20,7 @@ else if view == 0
 		tr
 			each val, index in data
 				td(style={border:'1px solid #ccc'})
-					p 
+					p
 						Температура:
 						= (val.temp.day - 273).toFixed(2)
 						&deg; C
